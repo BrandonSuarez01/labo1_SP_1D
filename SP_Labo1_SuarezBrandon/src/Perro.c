@@ -158,6 +158,27 @@ int perro_getRaza(ePerrito* this, char* raza)
 	}
 	return retorno;
 }
+int perro_setRacion(ePerrito* this, float racion)
+{
+	int retorno = -1;
+
+	if(this != NULL)
+	{
+		this->cantidadComidaRacion = racion;
+		retorno = 0;
+	}
+	return retorno;
+}
+float perro_getRacion(ePerrito* this)
+{
+	float retorno = -1.00;
+
+	if(this != NULL)
+	{
+		retorno = this->cantidadComidaRacion;
+	}
+	return retorno;
+}
 int perro_ordenarPorNombre(void* punteroUno, void* punteroDos)
 {
 	int retorno = -2;
@@ -173,5 +194,22 @@ int perro_ordenarPorNombre(void* punteroUno, void* punteroDos)
 	auxEmpleado = NULL;
 	auxEmpleadoDos = NULL;
 
+	return retorno;
+}
+int perro_laQueMapea(void* puntero)
+{
+	int retorno = -1;
+	float auxPeso;
+	float calculo;
+	ePerrito* auxPerri= NULL;
+
+	if(puntero != NULL)
+	{
+		auxPerri = (ePerrito*)puntero;
+		auxPeso = auxPerri->peso;
+		calculo = auxPeso * 23;
+		perro_setRacion(auxPerri, calculo);
+		retorno = 0;
+	}
 	return retorno;
 }

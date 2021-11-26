@@ -14,6 +14,7 @@ int main(void)
 	setbuf(stdout, NULL);
 	int opcion = 0;
 	int flagCarga = 0;
+	int flagRacion = 0;
 
 	LinkedList* pArrayPerros = ll_newLinkedList();
 
@@ -22,17 +23,19 @@ int main(void)
 		obtenerNumeroValido(&opcion, "------------MENU------------\n"
 									 "1. Cargar los datos.\n"
 									 "2. Listar en orden ascendente\n"
-									 //"3. Calcular cantidad de racion.\n"
-									 "3. Salir.\n"
+									 "3. Calcular cantidad de racion.\n"
+									 "4. Listar perros con racion.\n"
+									 "5. Salir.\n"
 									 "----------------------------\n"
 									 "Ingrese la opcion deseada: "
 									, "------------MENU------------\n"
 									 "1. Cargar los datos.\n"
 									 "2. Listar en orden ascendente\n"
-									 //"3. Calcular cantidad de racion.\n"
-									 "3. Salir.\n"
+									 "3. Calcular cantidad de racion.\n"
+									 "4. Listar perros con racion.\n"
+									 "5. Salir.\n"
 									 "----------------------------\n"
-									 "ERROR - Reingrese la opcion deseada: ", 1, 3);
+									 "ERROR - Reingrese la opcion deseada: ", 1, 5);
 
 		switch(opcion)
 		{
@@ -58,9 +61,31 @@ int main(void)
 				}
 			break;
 			case 3 :
+				if(flagCarga == 1)
+				{
+					if(!control_agregarRacion(pArrayPerros))
+					{
+						printf("\nRaciones calculadas y agregadas correctamente.\n");
+						flagRacion = 1;
+					}
+				}
+				else
+				{
+					printf("\nERROR - Aun no se ha cargado ninguna lista.\n");
+				}
+			break;
+			case 4 :
+				if(flagCarga == 1 && flagRacion == 1)
+				{
+					control_listarArrayConRacion(pArrayPerros);
+				}
+				else
+				{
+					printf("\nERROR - Aun no se ha cargado ninguna lista o no se calculo la racion.\n");
+				}
 			break;
 		}
-	}while(opcion != 3);
+	}while(opcion != 5);
 
 	return EXIT_SUCCESS;
 }

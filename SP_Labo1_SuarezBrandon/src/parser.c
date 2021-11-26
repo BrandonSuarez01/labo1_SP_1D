@@ -19,10 +19,6 @@ int parser_perrosDesdeTexto(FILE* pFile , LinkedList* pArrayPerros)
 	while(!feof(pFile))
 	{
 		fscanf(pFile, "%[^,], %[^,], %[^,], %[^,], %[^\n]\n",id ,nombre, peso , edad, raza);
-		/*if(feof(pFile))
-		{
-			break;
-		}*/
 		ePerrito* unPerro = perro_construcParam(id, nombre, peso, edad,  raza);
 		ll_add(pArrayPerros, unPerro);
 		retorno = 0;

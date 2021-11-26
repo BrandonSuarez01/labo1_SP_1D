@@ -22,6 +22,7 @@ typedef struct
 	float peso;
 	int edad;
 	char raza[TAMNOM];
+	float cantidadComidaRacion;
 
 }ePerrito;
 
@@ -45,6 +46,10 @@ int perro_getNombre(ePerrito* this, char* nombre);
 int perro_setRaza(ePerrito* this, char* raza);
 int perro_getRaza(ePerrito* this, char* raza);
 
+int perro_setRacion(ePerrito* this, float racion);
+float perro_getRacion(ePerrito* this);
+
 int perro_ordenarPorNombre(void* punteroUno, void* punteroDos);
+int perro_laQueMapea(void* puntero);
 
 #endif /* PERRO_H_ */

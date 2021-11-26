@@ -17,5 +17,7 @@
 int control_cargarDesdeTexto(char* path, LinkedList* this);
 int control_listarArray(LinkedList* this);
 int control_listarPerrosOrdenados(LinkedList* this);
+int control_agregarRacion(LinkedList* this);
+int control_listarArrayConRacion(LinkedList* this);
 
 #endif /* CONTROL_H_ */

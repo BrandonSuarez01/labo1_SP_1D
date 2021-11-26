@@ -600,4 +600,24 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
     return returnAux;
 
 }
+int ll_map(LinkedList* this, int (*pFunc)(void*))
+{
+	int retorno = -1;
+	int tam;
+	int i;
+	void* pElement = NULL;
+
+	if(this != NULL && pFunc != NULL)
+	{
+		tam = ll_len(this);
+
+		for(i = 0; i < tam; i++)
+		{
+			pElement = ll_get(this, i);
+			pFunc(pElement);
+		}
+		retorno = 0;
+	}
+	return retorno;
+}
 

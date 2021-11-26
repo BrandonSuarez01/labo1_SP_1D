@@ -62,10 +62,57 @@ int control_listarPerrosOrdenados(LinkedList* this)
 	int retorno = -1;
 	int (*pFuncion)(void*, void*);
 
-	pFuncion = perro_ordenarPorNombre;
-	ll_sort(this, pFuncion, 1);
-	control_listarArray(this);
+	if(this != NULL)
+	{
+		pFuncion = perro_ordenarPorNombre;
+		ll_sort(this, pFuncion, 1);
+		control_listarArray(this);
+		retorno = 0;
+	}
+	return retorno;
+}
+int control_agregarRacion(LinkedList* this)
+{
+	int retorno = -1;
+	int (*pFuncion)(void*);
 
+	if(this != NULL)
+	{
+		pFuncion = perro_laQueMapea;
+		ll_map(this, pFuncion);
+		retorno = 0;
+	}
+	return retorno;
+}
+int control_listarArrayConRacion(LinkedList* this)
+{
+	int retorno = -1;
+	int tam = ll_len(this);
+	int i;
+	int auxEdad;
+	int auxId;
+	float auxPeso;
+	float auxRacion;
+	char auxNombre[TAMNOM];
+	char auxRaza[TAMNOM];
 
+	ePerrito* unPerro = NULL;
+
+	if(this != NULL)
+	{
+		for(i = 0; i < tam; i++)
+		{
+			unPerro = (ePerrito*) ll_get(this, i);
+
+			auxId = perro_getId(unPerro);
+			auxPeso = perro_getPeso(unPerro);
+			auxEdad = perro_getEdad(unPerro);
+			auxRacion = perro_getRacion(unPerro);
+			perro_getNombre(unPerro, auxNombre);
+			perro_getRaza(unPerro, auxRaza);
+			printf("%-10d - %-20s - %-20.2f - %-20d - %-20s - %-20.2f\n",auxId, auxNombre, auxPeso , auxEdad, auxRaza, auxRacion);
+		}
+
+	}
 	return retorno;
 }
