@@ -19,5 +19,7 @@ int control_listarArray(LinkedList* this);
 int control_listarPerrosOrdenados(LinkedList* this);
 int control_agregarRacion(LinkedList* this);
 int control_listarArrayConRacion(LinkedList* this);
+LinkedList* control_filtrarGalgosFlacos(LinkedList* this);
+int control_guardarGalgosFlacos(char* path, LinkedList* this);
 
 #endif /* CONTROL_H_ */

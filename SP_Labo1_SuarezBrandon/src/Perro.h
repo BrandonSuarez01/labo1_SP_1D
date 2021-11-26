@@ -52,4 +52,6 @@ float perro_getRacion(ePerrito* this);
 int perro_ordenarPorNombre(void* punteroUno, void* punteroDos);
 int perro_laQueMapea(void* puntero);
 
+int perro_laQueFiltra(void* puntero);
+
 #endif /* PERRO_H_ */

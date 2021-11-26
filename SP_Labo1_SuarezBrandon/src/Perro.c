@@ -213,3 +213,28 @@ int perro_laQueMapea(void* puntero)
 	}
 	return retorno;
 }
+int perro_laQueFiltra(void* puntero)
+{
+	int retorno = -1;
+	int auxEdad;
+	float auxGramos;
+	char auxRaza[TAMNOM];
+	int auxRet;
+
+	ePerrito* auxPerrito = NULL;
+
+	if(puntero != NULL)
+	{
+		auxPerrito = (ePerrito*)puntero;
+		auxEdad = perro_getId(auxPerrito);
+		auxGramos = perro_getRacion(auxPerrito);
+		perro_getRaza(auxPerrito, auxRaza);
+
+		auxRet = strcmp("Galgo", auxRaza);
+		if(auxRet == 0 && auxEdad > 10 && auxGramos < 200)
+		{
+			retorno = 0;
+		}
+	}
+	return retorno;
+}

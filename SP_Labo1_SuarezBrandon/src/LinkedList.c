@@ -620,4 +620,30 @@ int ll_map(LinkedList* this, int (*pFunc)(void*))
 	}
 	return retorno;
 }
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
+{
+	LinkedList* galgosFlacos = NULL;
+	int tam;
+	int i;
+	void* pElement;
+	int aux;
+
+	if(this != NULL && pFunc != NULL)
+	{
+		galgosFlacos = ll_newLinkedList();
+		tam = ll_len(this);
+
+		for(i = 0; i < tam; i++)
+		{
+			pElement = ll_get(this, i);
+			aux = pFunc(pElement);
+			if(aux == 0)
+			{
+				ll_add(galgosFlacos, pElement);
+			}
+		}
+	}
+	return galgosFlacos;
+}
+
 
