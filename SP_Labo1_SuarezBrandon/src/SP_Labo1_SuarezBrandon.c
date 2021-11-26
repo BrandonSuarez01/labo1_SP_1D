@@ -72,7 +72,7 @@ int main(void)
 				}
 			break;
 			case 3 :
-				if(flagCarga == 1)
+				if(flagCarga == 1 && flagOrder == 1)
 				{
 					if(!control_agregarRacion(pArrayPerros))
 					{
@@ -87,7 +87,7 @@ int main(void)
 				}
 			break;
 			case 4 :
-				if(flagCarga == 1 && flagRacion == 1)
+				if(flagCarga == 1 && flagRacion == 1 && flagOrder == 1)
 				{
 					systemPause("Listando, espere.... Presione cualquier tecla para continuar...\n");
 					control_listarArrayConRacion(pArrayPerros);
