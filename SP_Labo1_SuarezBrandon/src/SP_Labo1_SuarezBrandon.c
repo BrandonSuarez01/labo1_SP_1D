@@ -83,7 +83,7 @@ int main(void)
 				}
 				else
 				{
-					printf("\nERROR - Aun no se ha cargado ninguna lista.\n");
+					printf("\nERROR - Aun no se ha cargado ninguna lista o no se ha ordenado.\n");
 				}
 			break;
 			case 4 :
@@ -94,7 +94,7 @@ int main(void)
 				}
 				else
 				{
-					printf("\nERROR - Aun no se ha cargado ninguna lista o no se calculo la racion.\n");
+					printf("\nERROR - Aun no se ha cargado ninguna lista, no se calculo la racion o no se ordeno.\n");
 				}
 			break;
 			case 5 :
